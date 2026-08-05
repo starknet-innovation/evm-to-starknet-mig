@@ -107,7 +107,7 @@ interface CallsStatus {
 }
 
 function batchRequestId(plan: MigrationPlan) {
-  return keccak256(toHex(`lattice:${plan.id}`));
+  return keccak256(toHex(`stark-crossing:${plan.id}`));
 }
 
 async function getCallsStatus(request: WalletRpc, batchId: string) {

@@ -22,4 +22,4 @@ export const DEMO_EVM_ADDRESS =
 export const DEMO_STARKNET_ADDRESS =
   "0x04d4f0a44d2a5bd6d7cae11a7e7f4824f0b515891f611e1b80c2d01d85b9e57a";
 
-export const PRODUCT_NAME = "Lattice";
+export const PRODUCT_NAME = "Stark Crossing";

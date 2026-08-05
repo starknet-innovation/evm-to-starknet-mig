@@ -1,6 +1,6 @@
-# Lattice
+# Stark Crossing
 
-Lattice is a self-custodial Ethereum mainnet → Starknet mainnet migration dApp. It indexes an EVM wallet, keeps every active StarkGate ERC-20 route selected by default, proves control of the destination Starknet account with a nonce-bound SNIP-12 signature, and submits the exact approvals and deposits from the user's Ethereum wallet.
+Stark Crossing is a self-custodial Ethereum mainnet → Starknet mainnet migration dApp. It indexes an EVM wallet, keeps every active StarkGate ERC-20 route selected by default, proves control of the destination Starknet account with a nonce-bound SNIP-12 signature, and submits the exact approvals and deposits from the user's Ethereum wallet.
 
 The v1 scope is deliberately narrow: native ETH and ERC-20 assets only. NFTs, swaps, unsupported tokens, smart-deposit strategies, and other source chains are out of scope.
 
@@ -87,6 +87,6 @@ Before enabling mainnet writes:
 - No swap or alternative bridge path for assets absent from the StarkGate registry.
 - USD values are estimates and can be missing or stale; they never determine an onchain amount.
 - The selected ERC-20 amount is the wallet's full current balance. ETH is the full current balance minus messaging fees and the configured reserve.
-- Lattice tracks Ethereum transaction/batch confirmation and links to StarkGate activity; it does not yet persist `ACCEPTED_ON_L2` delivery status.
+- Stark Crossing tracks Ethereum transaction/batch confirmation and links to StarkGate activity; it does not yet persist `ACCEPTED_ON_L2` delivery status.
 - A fixed reserve cannot guarantee future Ethereum gas costs. The final wallet confirmation remains authoritative.
 - The in-memory development store is intentionally non-durable and unsuitable for multi-instance deployment.

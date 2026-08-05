@@ -15,6 +15,7 @@ import { formatUsd, shortenAddress } from "@/lib/format";
 import type { AssetSelection, MigrationPlan, WalletAsset } from "@/lib/types";
 
 type LoadState = "idle" | "loading" | "ready" | "error";
+const ACTIVE_PLAN_STORAGE_KEY = "stark-crossing.activePlan";
 
 export function MigrationApp() {
   const { address } = useAccount();
@@ -30,7 +31,7 @@ export function MigrationApp() {
   const sourceAddress = demo ? DEMO_EVM_ADDRESS : address;
 
   useEffect(() => {
-    const savedPlanId = window.localStorage.getItem("lattice.activePlan");
+    const savedPlanId = window.localStorage.getItem(ACTIVE_PLAN_STORAGE_KEY);
     if (!savedPlanId) return;
     void fetch(`/api/migrations/${savedPlanId}`)
       .then(async (response) => {
@@ -43,7 +44,7 @@ export function MigrationApp() {
         setDemo(savedPlan.demo);
         setActiveStep(3);
       })
-      .catch(() => window.localStorage.removeItem("lattice.activePlan"));
+      .catch(() => window.localStorage.removeItem(ACTIVE_PLAN_STORAGE_KEY));
   }, []);
 
   useEffect(() => {
@@ -98,13 +99,13 @@ export function MigrationApp() {
     setLoadedForAddress(null);
     setPlan(null);
     setActiveStep(1);
-    window.localStorage.removeItem("lattice.activePlan");
+    window.localStorage.removeItem(ACTIVE_PLAN_STORAGE_KEY);
   }
 
   function handleVerified(nextPlan: MigrationPlan) {
     setPlan(nextPlan);
     setActiveStep(3);
-    window.localStorage.setItem("lattice.activePlan", nextPlan.id);
+    window.localStorage.setItem(ACTIVE_PLAN_STORAGE_KEY, nextPlan.id);
   }
 
   const connected = Boolean(sourceAddress);

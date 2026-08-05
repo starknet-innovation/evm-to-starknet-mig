@@ -5,7 +5,7 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 
 export const metadata: Metadata = {
-  title: "Lattice — Move to Starknet",
+  title: "Stark Crossing — Move to Starknet",
   description: "A clear, self-custodial path from Ethereum to Starknet.",
 };
 

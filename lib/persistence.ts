@@ -7,12 +7,12 @@ interface MemoryDatabase {
 }
 
 declare global {
-  var __latticeMemoryDatabase: MemoryDatabase | undefined;
+  var __starkCrossingMemoryDatabase: MemoryDatabase | undefined;
 }
 
 const memoryDatabase =
-  globalThis.__latticeMemoryDatabase ??
-  (globalThis.__latticeMemoryDatabase = {
+  globalThis.__starkCrossingMemoryDatabase ??
+  (globalThis.__starkCrossingMemoryDatabase = {
     plans: new Map<string, MigrationPlan>(),
     challenges: new Map<string, PersistedChallenge>(),
   });
